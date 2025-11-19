@@ -11,14 +11,22 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let emprendedor of emprendedores" (click)="seleccionarEmprendedor(emprendedor)">
+            <tr 
+                *ngFor="let emprendedor of emprendedores" 
+                (click)="goToDetail(emprendedor.id)"
+                style="cursor: pointer;"
+            >
                 <td>{{ emprendedor.nombre }}</td>
-                <td><img [src]="emprendedor.foto_url" alt="{{ emprendedor.nombre }}" style="width: 50px; height: auto;"></td>
+                <td>
+                    <img 
+                        [src]="emprendedor.foto_url" 
+                        alt="{{ emprendedor.nombre }}" 
+                        style="width: 50px; height: auto;"
+                    >
+                </td>
                 <td>{{ emprendedor.genero }}</td>
                 <td>{{ emprendedor.pregrado }}</td>
             </tr>
         </tbody>
     </table>
-    
-    <app-emprendedor-detail *ngIf="emprendedorSeleccionado" [emprendedor]="emprendedorSeleccionado"></app-emprendedor-detail>
 </div>
